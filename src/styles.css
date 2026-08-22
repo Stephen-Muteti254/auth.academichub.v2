@@ -1,0 +1,165 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/*
+ * AcademicHub Auth — design system (light theme only).
+ *
+ * Mirrors the public site (academichubpro.com) tokens: pure white surfaces,
+ * royal blue primary, system font stack, soft ink-tinted shadows and
+ * generous rounding for a smooth, enterprise-grade feel.
+ *
+ * All colors use oklch. To add a new semantic color:
+ * 1. Add the variable to :root
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: var(--font-sans);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-deep: var(--primary-deep);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-ink: var(--ink);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Pure white background, deep ink text (matches public site) */
+  --background: oklch(100% 0 0);
+  --foreground: oklch(24% 0.045 259);
+
+  --card: oklch(100% 0 0);
+  --card-foreground: oklch(24% 0.045 259);
+  --popover: oklch(100% 0 0);
+  --popover-foreground: oklch(24% 0.045 259);
+
+  /* Royal blue brand (same as academichubpro.com) */
+  --primary: oklch(55% 0.17 255);
+  --primary-foreground: oklch(99% 0.003 250);
+  --primary-deep: oklch(29% 0.08 260);
+
+  /* Soft blue-gray secondary surfaces */
+  --secondary: oklch(96% 0.017 253);
+  --secondary-foreground: oklch(29% 0.08 260);
+
+  --muted: oklch(96.8% 0.008 250);
+  --muted-foreground: oklch(53% 0.03 256);
+
+  --accent: oklch(95.5% 0.028 250);
+  --accent-foreground: oklch(29% 0.08 260);
+
+  /* Supporting surfaces */
+  --ink: oklch(24% 0.045 259);
+  --surface: oklch(98.5% 0.005 250);
+  --surface-strong: oklch(96.2% 0.012 252);
+
+  /* Status colors */
+  --success: oklch(63% 0.15 154);
+  --success-foreground: oklch(99% 0.003 250);
+  --warning: oklch(78% 0.15 78);
+  --warning-foreground: oklch(26% 0.05 70);
+  --destructive: oklch(58% 0.21 27);
+  --destructive-foreground: oklch(99% 0.003 250);
+
+  --border: oklch(91.8% 0.012 253);
+  --input: oklch(91.8% 0.012 253);
+  --ring: oklch(55% 0.17 255);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  /* Smooth, consistent interaction motion across the portal */
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [role="button"] {
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@layer utilities {
+  /* Whisper-soft brand wash behind auth pages */
+  .bg-hero-wash {
+    background-image: linear-gradient(
+      160deg,
+      color-mix(in oklab, var(--primary) 7%, white) 0%,
+      white 42%,
+      color-mix(in oklab, var(--primary) 4%, white) 100%
+    );
+  }
+
+  .shadow-card {
+    box-shadow:
+      0 1px 2px color-mix(in oklab, var(--ink) 5%, transparent),
+      0 6px 20px -6px color-mix(in oklab, var(--ink) 7%, transparent);
+  }
+
+  .shadow-card-hover {
+    box-shadow:
+      0 2px 4px color-mix(in oklab, var(--ink) 6%, transparent),
+      0 18px 44px -14px color-mix(in oklab, var(--ink) 13%, transparent);
+  }
+}
