@@ -30,13 +30,13 @@ const OG_IMAGE = `${SITE_URL}/social/og-image.png`;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sign In — AcademicHub" },
+      { title: "Sign In | AcademicHub" },
       {
         name: "description",
         content:
           "Secure sign in for AcademicHub clients and writers. Access orders, messages, and your academic writing workspace.",
       },
-      { property: "og:title", content: "Sign In — AcademicHub" },
+      { property: "og:title", content: "Sign In | AcademicHub" },
       {
         property: "og:description",
         content:

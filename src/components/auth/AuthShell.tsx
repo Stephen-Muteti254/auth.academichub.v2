@@ -30,10 +30,10 @@ export function AuthShell({
       <div aria-hidden className="bg-hero-wash pointer-events-none absolute inset-0" />
 
       <header className="relative flex items-center justify-between px-5 py-5 sm:px-10">
-        <a href={PORTALS.PUBLIC} className="flex items-center gap-2.5">
+        <a href={PORTALS.PUBLIC} className="flex items-center">
           <img src={logo} alt="AcademicHub" className="h-9 w-9" />
           <span className="text-lg font-bold tracking-tight text-foreground">
-            AcademicHub
+            ademicHub
           </span>
         </a>
         <a

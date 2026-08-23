@@ -25,13 +25,13 @@ const OG_IMAGE = `${SITE_URL}/social/og-image.png`;
 export const Route = createFileRoute("/register/writer")({
   head: () => ({
     meta: [
-      { title: "Become a Writer — AcademicHub" },
+      { title: "Become a Writer | AcademicHub" },
       {
         name: "description",
         content:
           "Apply to join AcademicHub as an academic writer. Clear application steps, fair review, and reliable payouts for verified experts.",
       },
-      { property: "og:title", content: "Become a Writer — AcademicHub" },
+      { property: "og:title", content: "Become a Writer | AcademicHub" },
       {
         property: "og:description",
         content:

@@ -21,13 +21,13 @@ const OG_IMAGE = `${SITE_URL}/social/og-image.png`;
 export const Route = createFileRoute("/register/client")({
   head: () => ({
     meta: [
-      { title: "Client Sign Up — AcademicHub" },
+      { title: "Client Sign Up | AcademicHub" },
       {
         name: "description",
         content:
           "Create an anonymous AcademicHub client account with just an email and a nickname. Hire verified academic writers with complete privacy.",
       },
-      { property: "og:title", content: "Client Sign Up — AcademicHub" },
+      { property: "og:title", content: "Client Sign Up | AcademicHub" },
       {
         property: "og:description",
         content:
